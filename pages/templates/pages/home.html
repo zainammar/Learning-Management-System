@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>Home Page</h1>
+<style>
+     body{background-color: #fef7b0; }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My LMS</title>
+</head>
+<body>
+    <h1>Welcome to LMS</h1>
+    <p>Courses are admin-managed and not visible yet.</p>
+    <h1>Welcome, {{ request.user.username }}</h1>
+<p><a href="{% url 'my_courses' %}">My Courses</a></p>
+</body>
+</html>
+
+</body>
+</html>

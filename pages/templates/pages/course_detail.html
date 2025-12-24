@@ -1,0 +1,21 @@
+{% for chapter in course.chapters.all %}
+  <h3>{{ chapter.title }}</h3>
+  <ul>
+    {% for page in chapter.pages.all %}
+      <li>
+        {{ page.title }}
+
+        {% if page.video %}
+          <video width="320" controls>
+            <source src="{{ page.video.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        {% endif %}
+
+        {% if page.pdf %}
+          <a href="{{ page.pdf.url }}" target="_blank">Download PDF</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}

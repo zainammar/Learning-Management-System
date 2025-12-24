@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block content %}
+<h2>{{ course.title }}</h2>
+<p>{{ course.description }}</p>
+
+{% for chapter in course.chapters.all %}
+    <h3>{{ chapter.title }}</h3>
+    <ul>
+        {% for page in chapter.pages.all %}
+            <li>
+                {{ page.title }}
+                {% if page.video %}
+                    <video width="320" controls>
+                        <source src="{{ page.video.url }}" type="video/mp4">
+                    </video>
+                {% endif %}
+                {% if page.pdf %}
+                    <a href="{{ page.pdf.url }}" target="_blank">Download PDF</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+{% endblock %}

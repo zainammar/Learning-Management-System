@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>My Courses</h2>
+
+{% for course in courses %}
+    <p>
+        <a href="{% url 'course_detail' course.slug %}">
+            {{ course.title }}
+        </a>
+    </p>
+{% empty %}
+    <p>You are not enrolled in any course.</p>
+{% endfor %}
+</body>
+</html>
